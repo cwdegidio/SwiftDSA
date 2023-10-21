@@ -11,12 +11,18 @@ class Node: Equatable {
         self.prevNode = prevNode
     }
     
+    // This defines how we want to equate two Nodes when
+    // they are being compared.
+    // We could have chosen to also check prevNode and nextNode
+    // to allow for non-unique values.
     static func == (lhs: Node, rhs: Node) -> Bool {
         return lhs.data == rhs.data
     }
 }
 
 class DoublyCircularLinkedList {
+    // We need some way to track our 'head'... even though
+    // it is a circular list
     var firstNode: Node?
     
     init(firstNode: Node? = nil) {
